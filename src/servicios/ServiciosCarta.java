@@ -22,69 +22,72 @@ import java.util.Collections;
 
 public class ServiciosCarta {
 
-    ArrayList<Carta> monton = new ArrayList();
-    ArrayList<Carta> baraja = new ArrayList();
-    int posicion = 39;
-
+    //ArrayList<Carta> monton = new ArrayList();
+    //ArrayList<Carta> baraja = new ArrayList();
     
     
-    public void barajar() { 
-        Collections.shuffle(baraja);
-    }
-
-    public void cargarCartas() {
-        int j = 1;
-        for (int i = 0; i < 40; i = i + 4) {
-
-            if ( j == 8) { 
-                j = 10;
-            }
-
-            baraja.add(new Carta(j, "Oro"));
-            baraja.add(new Carta(j, "Basto"));
-            baraja.add(new Carta(j, "Espada"));
-            baraja.add(new Carta(j, "Copa"));
-            
-            j++;
-        }
-    }
     
-    
-    public Carta siguienteCarta() { 
-        monton.add(baraja.get(posicion));
-        return baraja.get(posicion --);
-    }
-
-    
-    public int cartasDisponibles() {
-        return (posicion + 1);
-    }
-    
-
-    public ArrayList<Carta> darCartas(int n) {
-        
-        ArrayList<Carta> mano = new ArrayList();
-        
-        if (n <= posicion) {
-            for (int i = 0; i < n; i++) {
-            mano.add(baraja.get(posicion));
-            posicion --;
-        }
-        
-        monton.addAll(mano);
-
-        } 
-        return mano;
-    }
-
-    
-    public void cartasMonton() {
-        System.out.println(monton.toString());
-    }
-
-    public void mostrarBaraja() {
-        for (int i = 0; i < posicion + 1; i++) {
-            System.out.println(baraja.get(i));
-        }
-    } 
+//    int posicion = 39;
+//
+//    
+//    
+//    public void barajar() { 
+//        Collections.shuffle(baraja);
+//    }
+//
+//    public void cargarCartas() {
+//        int j = 1;
+//        for (int i = 0; i < 40; i = i + 4) {
+//
+//            if ( j == 8) { 
+//                j = 10;
+//            }
+//
+//            baraja.add(new Carta(j, "Oro"));
+//            baraja.add(new Carta(j, "Basto"));
+//            baraja.add(new Carta(j, "Espada"));
+//            baraja.add(new Carta(j, "Copa"));
+//            
+//            j++;
+//        }
+//    }
+//    
+//    
+//    public Carta siguienteCarta() { 
+//        monton.add(baraja.get(posicion));
+//        return baraja.get(posicion --);
+//    }
+//
+//    
+//    public int cartasDisponibles() {
+//        return (posicion + 1);
+//    }
+//    
+//
+//    public ArrayList<Carta> darCartas(int n) {
+//        
+//        ArrayList<Carta> mano = new ArrayList();
+//        
+//        if (n <= posicion) {
+//            for (int i = 0; i < n; i++) {
+//            mano.add(baraja.get(posicion));
+//            posicion --;
+//        }
+//        
+//        monton.addAll(mano);
+//
+//        } 
+//        return mano;
+//    }
+//
+//    
+//    public void cartasMonton() {
+//        System.out.println(monton.toString());
+//    }
+//
+//    public void mostrarBaraja() {
+//        for (int i = 0; i < posicion + 1; i++) {
+//            System.out.println(baraja.get(i));
+//        }
+//    } 
 }

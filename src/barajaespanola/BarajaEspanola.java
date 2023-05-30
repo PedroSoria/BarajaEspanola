@@ -17,19 +17,24 @@ luego se llama al método, este no mostrara esa primera carta.  */
 package barajaespanola;
 
 import java.util.Scanner;
-import servicios.ServiciosCarta;
+import servicios.ServiciosBaraja;
+import servicios.ServiciosPilon;
 
 public class BarajaEspanola {
 
     public static void main(String[] args) {
 
-        ServiciosCarta sc = new ServiciosCarta();
-        sc.cargarCartas();
-        menu(sc);
+ServiciosBaraja serviciosBaraja = new ServiciosBaraja();
+        
+        serviciosBaraja.cargarCartas();
+        menu();
 
     }
 
-    public static void menu(ServiciosCarta sc) {
+    public static void menu() {
+        
+        ServiciosBaraja serviciosBaraja = new ServiciosBaraja();
+        ServiciosPilon serviciosPilon = new ServiciosPilon();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Juego de cartas. elija una opcion:");
@@ -40,37 +45,40 @@ public class BarajaEspanola {
         System.out.println("4. dar mano");
         System.out.println("5. Mostrar Cartas del monton");
         System.out.println("6. mostrar baraja");
+        System.out.println("7. Exit");
 
         int r = scanner.nextInt();
 
         switch (r) {
             case 1:
-                sc.barajar();
-                menu(sc);
+                serviciosBaraja.barajar();
+                menu();
                 break;
             case 2:
-                System.out.println(sc.siguienteCarta());
-                menu(sc);
+                System.out.println(serviciosBaraja.siguienteCarta());
+                menu();
                 break;
             case 3:
-                System.out.println(sc.cartasDisponibles());
-                menu(sc);
+                System.out.println(serviciosBaraja.cartasDisponibles());
+                menu();
                 break;
             case 4:
-                System.out.println(sc.darCartas(scanner.nextInt()).toString());
-                menu(sc);
+                System.out.println(serviciosBaraja.darCartas(scanner.nextInt()).toString());
+                menu();
                 break;
             case 5:
-                sc.cartasMonton();
-                menu(sc);
+                serviciosPilon.cartasPilon();
+                menu();
                 break;
             case 6:
-                sc.mostrarBaraja();
-                menu(sc);
+                serviciosBaraja.mostrarBaraja();
+                menu();
+                break;
+            case 7: 
                 break;
             default:
                 System.out.println("Por favor introducir numero de la lista");
-                menu(sc);
+                menu();
         }
     }
 }
